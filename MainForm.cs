@@ -16,6 +16,11 @@ namespace Douha_DBMS
 
         private void btnGetDBs_Click(object sender, EventArgs e)
         {
+            ReloadDBs();
+        }
+
+        private void ReloadDBs()
+        {
             listDB.DataSource = GetDatabaseNames();
             listDB.ClearSelected();
         }
@@ -99,9 +104,9 @@ namespace Douha_DBMS
                 }
                 finally
                 {
+                    ReloadDBs();
                     Cursor = Cursors.Default;
                     Enabled = true;
-                    GetDatabaseNames();
                 }
             }
         }
